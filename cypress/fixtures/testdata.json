@@ -1,0 +1,8 @@
+{
+    "revolgy_form_h1": "デモ口座の開設",
+    "revolgy_form_h2": "お客様のご連絡先",
+    "axiory_form_h1": "さあ、トレードを始めましょう。",
+    "match_format_warning": "Please match the format requested.",
+    "zero_deposit_warning": "Value must be greater than or equal to 1000.",
+    "too_big_deposit_warning": "Value must be less than or equal to 10000000."
+}
