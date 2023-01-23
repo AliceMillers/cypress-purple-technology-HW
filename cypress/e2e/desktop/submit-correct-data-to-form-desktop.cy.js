@@ -10,6 +10,7 @@ describe('Verify if user is able to submit correct data to a form on desktop', f
     cy.get('.atm-h1-container').contains(this.testdata.revolgy_form_h1)
     cy.get('.atm-h2-container').contains(this.testdata.revolgy_form_h2)
     cy.fullfillCorrectDataToForm()
+    cy.get('h1').should('be.visible')
     cy.get('h1').contains(this.testdata.axiory_form_h1)
     cy.interceptBadResponse()
   })
