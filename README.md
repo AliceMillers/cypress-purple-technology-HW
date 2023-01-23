@@ -24,7 +24,5 @@ npm run cypress:open
 ## 3. Test results
 Test results could be found in GH Actions Workflow. Check the latest green build. 
 
-Local run: 
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
