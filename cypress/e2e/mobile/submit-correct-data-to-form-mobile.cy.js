@@ -11,7 +11,7 @@ describe('Verify if user is able to submit correct data to a form on mobile', fu
       cy.get('.atm-h1-container').contains(this.testdata.revolgy_form_h1)
       cy.get('.atm-h2-container').contains(this.testdata.revolgy_form_h2)
       cy.fullfillCorrectDataToForm()
-      cy.url().should('include', 'https://portal.axiory.com/register/')
+      cy.url().should('include', 'https://portal.axiory.com/register')
       cy.interceptBadResponse()
     })
 })
