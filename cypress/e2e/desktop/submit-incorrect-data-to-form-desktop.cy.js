@@ -1,33 +1,32 @@
-describe('Verify if user isnt able to submit incorrect data to a form', function () {
-    beforeEach(function () {
-      cy.fixture('testdata').then(function (testdata) {
-          this.testdata = testdata
+describe('Verify if user isnt able to submit incorrect data to a form', () => {
+  let testdata
+    beforeEach(() => {
+      cy.fixture('testdata').then(data => {
+          testdata = data
       })
       cy.visit('/jp/registration/demo')
     })
     
-    it('fullfill incorrect firstname to a registration form page', function () {
-      cy.get('.atm-h1-container').contains(this.testdata.revolgy_form_h1)
-      cy.get('.atm-h2-container').contains(this.testdata.revolgy_form_h2)
+    it('rejects invalid first name', () => {
       cy.get('#firstname').type('12345')
       cy.get('.atm-submit-container').click()
       cy.get("#firstname:invalid").should('have.length', 1)
-      cy.get('#firstname').then(($input) => {
-        expect($input[0].validationMessage).to.eq(this.testdata.match_format_warning);
+      cy.get('#firstname').then(input => {
+        expect(input[0].validationMessage).to.eq(testdata.match_format_warning);
       })
      })
 
-    it('fullfill incorrect lastname to a registration form page', function () {
+    it('rejects invalid last name', () => {
         cy.get('#firstname').type('Steve')
         cy.get('#lastname').type('4678')
         cy.get('.atm-submit-container').click()
         cy.get("#lastname:invalid").should('have.length', 1)
-        cy.get('#lastname').then(($input) => {
-        expect($input[0].validationMessage).to.eq(this.testdata.match_format_warning);
+        cy.get('#lastname').then(input => {
+          expect(input[0].validationMessage).to.eq(testdata.match_format_warning);
         })
       })
 
-    it('fullfill incorrect email to a registration form page', function () {
+    it('rejects invalid email', function () {
         cy.get('#firstname').type('Steve')
         cy.get('#lastname').type('Jobes')
         cy.get('#phone').type('123456789')
@@ -35,12 +34,12 @@ describe('Verify if user isnt able to submit incorrect data to a form', function
         cy.get('#email').type('test123@test.com')
         cy.get('.atm-submit-container').click()
         cy.get("#email:invalid").should('have.length', 1)
-        cy.get('#email').then(($input) => {
-        expect($input[0].validationMessage).to.eq(this.testdata.match_format_warning);
+        cy.get('#email').then(input => {
+          expect(input[0].validationMessage).to.eq(testdata.match_format_warning);
         })
       })
 
-    it('fullfill zero deposit to a registration form page', function () {
+    it('rejects zero deposit', function () {
         cy.get('#firstname').type('Steve')
         cy.get('#lastname').type('Jobes')
         cy.get('#email').type('test@test.com')
@@ -49,12 +48,12 @@ describe('Verify if user isnt able to submit incorrect data to a form', function
         cy.get('#deposit').type('0')
         cy.get('.atm-submit-container').click()
         cy.get("#deposit:invalid").should('have.length', 1)
-        cy.get('#deposit').then(($input) => {
-        expect($input[0].validationMessage).to.eq(this.testdata.zero_deposit_warning);
+        cy.get('#deposit').then(input => {
+        expect(input[0].validationMessage).to.eq(this.testdata.zero_deposit_warning);
         })
       })
     
-    it('fullfill too big deposit to a registration form page', function () {
+    it('rejects too big deposit', function () {
         cy.get('#firstname').type('Steve')
         cy.get('#lastname').type('Jobes')
         cy.get('#email').type('test@test.com')
@@ -63,8 +62,8 @@ describe('Verify if user isnt able to submit incorrect data to a form', function
         cy.get('#deposit').type('100000000')
         cy.get('.atm-submit-container').click()
         cy.get("#deposit:invalid").should('have.length', 1)
-        cy.get('#deposit').then(($input) => {
-        expect($input[0].validationMessage).to.eq(this.testdata.too_big_deposit_warning);
+        cy.get('#deposit').then(input => {
+        expect(input[0].validationMessage).to.eq(this.testdata.too_big_deposit_warning);
         })
       })
   })

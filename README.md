@@ -16,7 +16,7 @@ npm install
 ```
 
 ## 2. Usage
-Inside the project simply run to run open cypress and run tests
+Inside the project simply run this command in order to open Cypress UI:
 ```bash
 npm run cypress:open
 ```
