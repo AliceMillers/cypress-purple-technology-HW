@@ -1,15 +1,11 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
-import '../constants';
+import '../constants'
 
-Cypress.Commands.add('preventUncaughtExceptions', () => {
+before(() => {
   Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
     return false
-  })
-
-  before(() => {
-    cy.preventUncaughtExceptions();
   })
 })

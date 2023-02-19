@@ -5,5 +5,5 @@ module.exports = defineConfig({
   fixturesFolder: 'cypress/fixtures',
   e2e: {
     baseUrl: 'https://revolgy-forms-case-study-master.staging.axiory.com'
-  },
+  }
 })
