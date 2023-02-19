@@ -49,7 +49,7 @@ describe('Verify if user isnt able to submit incorrect data to a form', () => {
         cy.get('.atm-submit-container').click()
         cy.get("#deposit:invalid").should('have.length', 1)
         cy.get('#deposit').then(input => {
-        expect(input[0].validationMessage).to.eq(this.testdata.zero_deposit_warning);
+        expect(input[0].validationMessage).to.eq(testdata.zero_deposit_warning);
         })
       })
     
@@ -63,7 +63,7 @@ describe('Verify if user isnt able to submit incorrect data to a form', () => {
         cy.get('.atm-submit-container').click()
         cy.get("#deposit:invalid").should('have.length', 1)
         cy.get('#deposit').then(input => {
-        expect(input[0].validationMessage).to.eq(this.testdata.too_big_deposit_warning);
+        expect(input[0].validationMessage).to.eq(testdata.too_big_deposit_warning);
         })
       })
   })
